@@ -5,7 +5,7 @@ import NoteListNav from '../NoteListNav/NoteListNav';
 import NotePageNav from '../NotePageNav/NotePageNav';
 import NoteListMain from '../NoteListMain/NoteListMain';
 import NotePageMain from '../NotePageMain/NotePageMain';
-import store from '../store';
+import dummyStore from '../dummy-store';
 import {getNotesForFolder, findNote, findFolder} from '../notes-helpers';
 import './App.css';
 
@@ -16,7 +16,7 @@ class App extends Component {
     };
 
     componentDidMount() {
-        setTimeout(() => this.setState(store), 600);
+        setTimeout(() => this.setState(dummyStore), 600);
     }
 
     renderNavRoutes() {
