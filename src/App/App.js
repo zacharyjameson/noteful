@@ -20,6 +20,7 @@ class App extends Component {
   componentDidMount() {
     this.fetchAllData();
   }
+
   fetchAllData = () => {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/notes`),
@@ -38,14 +39,6 @@ class App extends Component {
       .catch((error) => {
         console.error({ error });
       });
-  };
-
-  fetchFolders = () => {
-    return fetch(`${config.API_ENDPOINT}/folders`).then((res) => res.json());
-  };
-
-  fetchNotes = () => {
-    return fetch(`${config.API_ENDPOINT}/notes`).then((res) => res.json());
   };
 
   handleDeleteNote = (noteId) => {
