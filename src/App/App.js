@@ -7,8 +7,9 @@ import NoteListMain from "../NoteListMain/NoteListMain";
 import NotePageMain from "../NotePageMain/NotePageMain";
 import config from "../config";
 import ApiContext from "../ApiContext";
-import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
+//import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
 import "./App.css";
+import AddFolder from "../AddFolder/AddFolder";
 
 class App extends Component {
   state = {
@@ -17,6 +18,9 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.fetchAllData();
+  }
+  fetchAllData = () => {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/notes`),
       fetch(`${config.API_ENDPOINT}/folders`),
@@ -34,7 +38,15 @@ class App extends Component {
       .catch((error) => {
         console.error({ error });
       });
-  }
+  };
+
+  fetchFolders = () => {
+    return fetch(`${config.API_ENDPOINT}/folders`).then((res) => res.json());
+  };
+
+  fetchNotes = () => {
+    return fetch(`${config.API_ENDPOINT}/notes`).then((res) => res.json());
+  };
 
   handleDeleteNote = (noteId) => {
     this.setState({
@@ -49,7 +61,7 @@ class App extends Component {
           <Route exact key={path} path={path} component={NoteListNav} />
         ))}
         <Route path="/note/:noteId" component={NotePageNav} />
-        <Route path="/add-folder" component={NotePageNav} />
+        <Route path="/add-folder" component={AddFolder} />
         <Route path="/add-note" component={NotePageNav} />
       </>
     );
@@ -71,6 +83,7 @@ class App extends Component {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
+      fetchData: this.fetchAllData,
     };
 
     return (
