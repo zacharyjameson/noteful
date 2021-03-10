@@ -7,9 +7,10 @@ import NoteListMain from "../NoteListMain/NoteListMain";
 import NotePageMain from "../NotePageMain/NotePageMain";
 import config from "../config";
 import ApiContext from "../ApiContext";
-//import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
+import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
 import "./App.css";
 import AddFolder from "../AddFolder/AddFolder";
+import AddNote from "../AddNote/AddNote";
 
 class App extends Component {
   state = {
@@ -55,7 +56,6 @@ class App extends Component {
         ))}
         <Route path="/note/:noteId" component={NotePageNav} />
         <Route path="/add-folder" component={AddFolder} />
-        <Route path="/add-note" component={NotePageNav} />
       </>
     );
   }
@@ -67,6 +67,7 @@ class App extends Component {
           <Route exact key={path} path={path} component={NoteListMain} />
         ))}
         <Route path="/note/:noteId" component={NotePageMain} />
+        <Route path="/add-note" component={AddNote} />
       </>
     );
   }
