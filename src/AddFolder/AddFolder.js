@@ -1,30 +1,28 @@
 import React, { Component } from "react";
 import ApiContext from "../ApiContext";
 import config from "../config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CircleButton from "../CircleButton/CircleButton.js";
 
 class AddFolder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: {
-        value: "",
-      },
+      name: "",
     };
   }
 
   static contextType = ApiContext;
 
-  updateName(name) {
+  updateName(event) {
     this.setState({
-      name: {
-        value: name,
-      },
+      name: event,
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const query = this.state.name.value;
+    const query = this.state.name;
 
     const requestOptions = {
       method: "POST",
@@ -54,9 +52,11 @@ class AddFolder extends Component {
   render() {
     return (
       <div className="Add_folder">
-        <div className="Folder_back_btn">
-          <button onClick={() => this.props.history.goBack()}>Go Back</button>
-        </div>
+        <CircleButton type="button" onClick={() => this.props.history.goBack()}>
+          <FontAwesomeIcon icon="chevron-left" />
+          <br />
+          Back
+        </CircleButton>
         <form
           className="add_folder_form"
           onSubmit={(e) => this.handleSubmit(e)}
@@ -73,9 +73,11 @@ class AddFolder extends Component {
             onChange={(e) => this.updateName(e.target.value)}
             required
           />
-          <button type="submit" className="add_folder_btn">
-            Add Folder
-          </button>
+          <CircleButton tag="button">
+            <FontAwesomeIcon icon="plus" />
+            <br />
+            Add
+          </CircleButton>
         </form>
       </div>
     );

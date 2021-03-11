@@ -1,56 +1,47 @@
 import React, { Component } from "react";
 import CircleButton from "../CircleButton/CircleButton.js";
 import ApiContext from "../ApiContext.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../config.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class AddNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: {
-        value: "",
-      },
-      content: {
-        value: "",
-      },
-      folder: {
-        value: "",
-      },
+      name: "",
+      content: "",
+      folder: "",
     };
   }
 
   static contextType = ApiContext;
 
-  updateName(name) {
+  updateName = (e) => {
     this.setState({
-      name: {
-        value: name,
-      },
+      name: e.target.value,
     });
-  }
+    console.log(e.target.value);
+  };
 
-  updateContent(content) {
+  updateContent = (e) => {
     this.setState({
-      name: {
-        value: content,
-      },
+      content: e.target.value,
     });
-  }
+    console.log(e.target.value);
+  };
 
-  updateFolder(folder) {
+  updateFolder = (e) => {
     this.setState({
-      name: {
-        value: folder,
-      },
+      folder: e.target.value,
     });
-  }
+    console.log(e.target.value);
+  };
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    const name = this.state.name.value;
-    const content = this.state.content.value;
-    const folder = this.state.folder.value;
+    const name = this.state.name;
+    const content = this.state.content;
+    const folder = this.state.folder;
 
     const requestOptions = {
       method: "POST",
@@ -58,9 +49,10 @@ class AddNote extends Component {
       body: JSON.stringify({
         name: `${name}`,
         content: `${content}`,
-        folder: `${folder}`,
+        folderId: `${folder}`,
       }),
     };
+
     fetch(`${config.API_ENDPOINT}/notes/`, requestOptions)
       .then((res) => {
         if (!res.ok) {
@@ -75,7 +67,7 @@ class AddNote extends Component {
       .catch((error) => {
         console.log("Error: ", error);
       });
-  }
+  };
 
   render() {
     const options = this.context.folders.map((folder, i) => {
@@ -88,9 +80,11 @@ class AddNote extends Component {
     return (
       <div className="Add_note">
         <CircleButton type="button" onClick={() => this.props.history.goBack()}>
-          Go Back
+          <FontAwesomeIcon icon="chevron-left" />
+          <br />
+          Back
         </CircleButton>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form onSubmit={this.handleSubmit}>
           <legend>
             <h2>Create a Note</h2>
           </legend>
@@ -99,7 +93,7 @@ class AddNote extends Component {
             type="text"
             name="addnote-label"
             id="addnote-label"
-            onChange={(e) => this.updateName(e.target.value)}
+            onChange={this.updateName}
             required
           />
           <br />
@@ -109,7 +103,7 @@ class AddNote extends Component {
             type="text"
             name="addnote-content"
             id="addnote-content"
-            onChange={(e) => this.updateContent(e)}
+            onChange={this.updateContent}
             required
           />
           <br />
@@ -119,13 +113,17 @@ class AddNote extends Component {
           <select
             id="folder"
             name="folder"
-            onChange={(e) => this.updateFolder(e)}
+            onChange={this.updateFolder}
             required
           >
             <option value="none">Select one...</option>
             {options}
           </select>
-          <button type="submit">Add Note</button>
+            <CircleButton tag="button">
+              <FontAwesomeIcon icon="plus" />
+              <br />
+              Add
+            </CircleButton>
         </form>
       </div>
     );

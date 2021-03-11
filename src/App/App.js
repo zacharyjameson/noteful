@@ -7,7 +7,7 @@ import NoteListMain from "../NoteListMain/NoteListMain";
 import NotePageMain from "../NotePageMain/NotePageMain";
 import config from "../config";
 import ApiContext from "../ApiContext";
-import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
+//import { getNotesForFolder, findNote, findFolder } from "../notes-helpers";
 import "./App.css";
 import AddFolder from "../AddFolder/AddFolder";
 import AddNote from "../AddNote/AddNote";

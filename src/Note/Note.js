@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { format, parseISO } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../config";
 import ApiContext from "../ApiContext";
 import "./Note.css";
+import Moment from 'react-moment';
 
 export default class Note extends React.Component {
   static defaultProps = {
@@ -52,9 +52,8 @@ export default class Note extends React.Component {
         </button>
         <div className="Note__dates">
           <div className="Note__dates-modified">
-            Modified{" "}
             <span className="Date">
-              {format(parseISO(modified), "dd MMM yyyy")}
+              <Moment format="D MMMM YYYY">{modified}</Moment>
             </span>
           </div>
         </div>
