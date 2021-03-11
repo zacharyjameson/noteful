@@ -3,6 +3,7 @@ import CircleButton from "../CircleButton/CircleButton.js";
 import ApiContext from "../ApiContext.js";
 import config from "../config.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ValidationError from "../ValidationError.js";
 
 class AddNote extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class AddNote extends Component {
     this.state = {
       name: "",
       content: "",
-      folder: "",
+      folder: "none",
     };
   }
 
@@ -36,6 +37,29 @@ class AddNote extends Component {
     });
     console.log(e.target.value);
   };
+
+  validateName() {
+    const validName = this.state.name.trim();
+    if (validName.length === 0) {
+      return "Note name is required";
+    } else if (validName.length > 72) {
+      return "That's way too long. Please be reasonable.";
+    }
+  }
+
+  validateContent() {
+    const validContent = this.state.content.trim();
+    if (validContent.length === 0) {
+      return "Pls. Content is required.";
+    }
+  }
+
+  validateFolder() {
+    const validFolder = this.state.folder.trim();
+    if (validFolder === "none") {
+      return "Please select a folder";
+    }
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -96,6 +120,7 @@ class AddNote extends Component {
             onChange={this.updateName}
             required
           />
+          <ValidationError message={this.validateName()} />
           <br />
           <br />
           <label htmlFor="addnote-content">Content: </label>
@@ -106,6 +131,7 @@ class AddNote extends Component {
             onChange={this.updateContent}
             required
           />
+          <ValidationError message={this.validateContent()} />
           <br />
           <label htmlFor="folderOption" className="add_note_label">
             Select a Folder
@@ -119,11 +145,12 @@ class AddNote extends Component {
             <option value="none">Select one...</option>
             {options}
           </select>
-            <CircleButton tag="button">
-              <FontAwesomeIcon icon="plus" />
-              <br />
-              Add
-            </CircleButton>
+          <ValidationError message={this.validateFolder()} />
+          <CircleButton tag="button">
+            <FontAwesomeIcon icon="plus" />
+            <br />
+            Add
+          </CircleButton>
         </form>
       </div>
     );
@@ -131,9 +158,3 @@ class AddNote extends Component {
 }
 
 export default AddNote;
-
-/*<CircleButton type="button">
-            <FontAwesomeIcon icon="plus" />
-            <br />
-            Note
-          </CircleButton>*/

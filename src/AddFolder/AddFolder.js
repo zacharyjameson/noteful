@@ -3,12 +3,13 @@ import ApiContext from "../ApiContext";
 import config from "../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircleButton from "../CircleButton/CircleButton.js";
+import ValidationError from "../ValidationError";
 
 class AddFolder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      name: "none",
     };
   }
 
@@ -18,6 +19,13 @@ class AddFolder extends Component {
     this.setState({
       name: event,
     });
+  }
+
+  validateFolderName() {
+    const folderName = this.state.name.trim();
+    if (folderName === "none") {
+      return "Please enter a folder name";
+    }
   }
 
   handleSubmit(event) {
@@ -57,6 +65,7 @@ class AddFolder extends Component {
           <br />
           Back
         </CircleButton>
+        <br />
         <form
           className="add_folder_form"
           onSubmit={(e) => this.handleSubmit(e)}
@@ -73,6 +82,8 @@ class AddFolder extends Component {
             onChange={(e) => this.updateName(e.target.value)}
             required
           />
+          <ValidationError message={this.validateFolderName()} />
+          <br />
           <CircleButton tag="button">
             <FontAwesomeIcon icon="plus" />
             <br />
