@@ -4,6 +4,7 @@ import config from "../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircleButton from "../CircleButton/CircleButton.js";
 import ValidationError from "../ValidationError";
+import PropTypes from "prop-types";
 
 class AddFolder extends Component {
   constructor(props) {
@@ -96,3 +97,7 @@ class AddFolder extends Component {
 }
 
 export default AddFolder;
+
+AddFolder.propTypes = {
+  history: PropTypes.object,
+};

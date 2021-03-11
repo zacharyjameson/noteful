@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import CircleButton from "../CircleButton/CircleButton.js";
 import ApiContext from "../ApiContext.js";
 import config from "../config.js";
+import "../App/App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ValidationError from "../ValidationError.js";
+import PropTypes from "prop-types";
 
 class AddNote extends Component {
   constructor(props) {
@@ -102,7 +104,7 @@ class AddNote extends Component {
       );
     });
     return (
-      <div className="Add_note">
+      <div className="Add__note">
         <CircleButton type="button" onClick={() => this.props.history.goBack()}>
           <FontAwesomeIcon icon="chevron-left" />
           <br />
@@ -146,7 +148,8 @@ class AddNote extends Component {
             {options}
           </select>
           <ValidationError message={this.validateFolder()} />
-          <CircleButton tag="button">
+          <br />
+          <CircleButton role="link" tag="button">
             <FontAwesomeIcon icon="plus" />
             <br />
             Add
@@ -158,3 +161,7 @@ class AddNote extends Component {
 }
 
 export default AddNote;
+
+AddNote.propTypes = {
+  history: PropTypes.object,
+};

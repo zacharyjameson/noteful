@@ -20,4 +20,6 @@ a.NavCircleButton {
 
 .NavCircleButton:hover {
   cursor: pointer;
+  background-color: #1DB954;
+  color: white;
 }

@@ -11,6 +11,7 @@ import ApiContext from "../ApiContext";
 import "./App.css";
 import AddFolder from "../AddFolder/AddFolder";
 import AddNote from "../AddNote/AddNote";
+import AppError from "../Error";
 
 class App extends Component {
   state = {
@@ -50,25 +51,29 @@ class App extends Component {
 
   renderNavRoutes() {
     return (
-      <>
-        {["/", "/folder/:folderId"].map((path) => (
-          <Route exact key={path} path={path} component={NoteListNav} />
-        ))}
-        <Route path="/note/:noteId" component={NotePageNav} />
-        <Route path="/add-folder" component={AddFolder} />
-      </>
+      <AppError>
+        <>
+          {["/", "/folder/:folderId"].map((path) => (
+            <Route exact key={path} path={path} component={NoteListNav} />
+          ))}
+          <Route path="/note/:noteId" component={NotePageNav} />
+          <Route path="/add-folder" component={AddFolder} />
+        </>
+      </AppError>
     );
   }
 
   renderMainRoutes() {
     return (
-      <>
-        {["/", "/folder/:folderId"].map((path) => (
-          <Route exact key={path} path={path} component={NoteListMain} />
-        ))}
-        <Route path="/note/:noteId" component={NotePageMain} />
-        <Route path="/add-note" component={AddNote} />
-      </>
+      <AppError>
+        <>
+          {["/", "/folder/:folderId"].map((path) => (
+            <Route exact key={path} path={path} component={NoteListMain} />
+          ))}
+          <Route path="/note/:noteId" component={NotePageMain} />
+          <Route path="/add-note" component={AddNote} />
+        </>
+      </AppError>
     );
   }
 

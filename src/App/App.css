@@ -1,7 +1,6 @@
-
 .App {
-  --custom-font: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  --custom-font: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   display: grid;
   grid-template-areas: "sidebar header" "sidebar main";
@@ -32,9 +31,20 @@
   color: #bdbdbd;
 }
 
+.App_header a:hover {
+  color: #1db954;
+}
+
 .App__main {
   background-color: #102541;
   grid-area: main;
   height: calc(100vh - 120px);
   overflow: auto;
+}
+
+.Add__note {
+  color: white;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
 }

@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../config";
 import ApiContext from "../ApiContext";
 import "./Note.css";
-import Moment from 'react-moment';
+import Moment from "react-moment";
+import PropTypes from "prop-types";
 
 export default class Note extends React.Component {
   static defaultProps = {
@@ -61,3 +62,10 @@ export default class Note extends React.Component {
     );
   }
 }
+
+Note.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.string,
+  modified: PropTypes.string,
+  onDeleteNote: PropTypes.func
+};

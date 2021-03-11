@@ -24,5 +24,5 @@ class AppError extends Component {
 export default AppError;
 
 AppError.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.object,
 };
