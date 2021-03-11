@@ -30,7 +30,7 @@
   text-decoration: none;
 }
 .NoteListNav__folder-link:hover {
-  color: #FFB72F;
+  color: #1db954;
   cursor: pointer;
 }
 .NoteListNav__folder-link.active {
