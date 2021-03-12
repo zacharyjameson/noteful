@@ -8,12 +8,12 @@ exports[`Note component renders a .Note by default 1`] = `
     className="Note__title"
   >
     <Link
-      replace={false}
       to="/note/undefined"
     />
   </h2>
   <button
     className="Note__delete"
+    onClick={[Function]}
     type="button"
   >
     <FontAwesomeIcon
@@ -30,12 +30,12 @@ exports[`Note component renders a .Note by default 1`] = `
       rotation={null}
       size={null}
       spin={false}
+      swapOpacity={false}
       symbol={false}
       title=""
       transform={null}
     />
-     
-    remove
+     remove
   </button>
   <div
     className="Note__dates"
@@ -43,12 +43,28 @@ exports[`Note component renders a .Note by default 1`] = `
     <div
       className="Note__dates-modified"
     >
-      Modified
-       
       <span
         className="Date"
       >
-        Invalid Date
+        <n
+          ago={false}
+          calendar={false}
+          decimal={false}
+          element={null}
+          filter={[Function]}
+          format="D MMMM YYYY"
+          fromNow={false}
+          interval={60000}
+          local={false}
+          onChange={[Function]}
+          titleFormat=""
+          toNow={false}
+          trim={false}
+          unit={null}
+          unix={false}
+          utc={false}
+          withTitle={false}
+        />
       </span>
     </div>
   </div>
@@ -63,7 +79,6 @@ exports[`Note component renders the Note given props 1`] = `
     className="Note__title"
   >
     <Link
-      replace={false}
       to="/note/a"
     >
       test-class-name
@@ -71,6 +86,7 @@ exports[`Note component renders the Note given props 1`] = `
   </h2>
   <button
     className="Note__delete"
+    onClick={[Function]}
     type="button"
   >
     <FontAwesomeIcon
@@ -87,12 +103,12 @@ exports[`Note component renders the Note given props 1`] = `
       rotation={null}
       size={null}
       spin={false}
+      swapOpacity={false}
       symbol={false}
       title=""
       transform={null}
     />
-     
-    remove
+     remove
   </button>
   <div
     className="Note__dates"
@@ -100,12 +116,30 @@ exports[`Note component renders the Note given props 1`] = `
     <div
       className="Note__dates-modified"
     >
-      Modified
-       
       <span
         className="Date"
       >
-        15th Jan 2019
+        <n
+          ago={false}
+          calendar={false}
+          decimal={false}
+          element={null}
+          filter={[Function]}
+          format="D MMMM YYYY"
+          fromNow={false}
+          interval={60000}
+          local={false}
+          onChange={[Function]}
+          titleFormat=""
+          toNow={false}
+          trim={false}
+          unit={null}
+          unix={false}
+          utc={false}
+          withTitle={false}
+        >
+          <Component />
+        </n>
       </span>
     </div>
   </div>
