@@ -25,7 +25,7 @@ class App extends Component {
 
   fetchAllData = () => {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/notes`),
+      fetch(`${config.API_ENDPOINT}/note`),
       fetch(`${config.API_ENDPOINT}/folder`),
     ])
       .then(([notesRes, foldersRes]) => {
