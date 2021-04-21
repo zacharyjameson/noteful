@@ -10,7 +10,7 @@ class AddFolder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "none",
+      folder_name: "none",
     };
   }
 
@@ -18,12 +18,12 @@ class AddFolder extends Component {
 
   updateName(event) {
     this.setState({
-      name: event,
+      folder_name: event,
     });
   }
 
   validateFolderName() {
-    const folderName = this.state.name.trim();
+    const folderName = this.state.folder_name.trim();
     if (folderName === "none") {
       return "Please enter a folder name";
     }
@@ -31,7 +31,7 @@ class AddFolder extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const query = this.state.name;
+    const query = this.state.folder_name;
 
     const requestOptions = {
       method: "POST",
