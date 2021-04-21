@@ -40,7 +40,7 @@ class AddFolder extends Component {
         folder_name: `${query}`,
       }),
     };
-    fetch(`${config.API_ENDPOINT}/folders/`, requestOptions)
+    fetch(`${config.API_ENDPOINT}/folder/`, requestOptions)
       .then((res) => {
         if (!res.ok) {
           throw new Error(

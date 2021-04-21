@@ -79,7 +79,7 @@ class AddNote extends Component {
       }),
     };
 
-    fetch(`${config.API_ENDPOINT}/notes/`, requestOptions)
+    fetch(`${config.API_ENDPOINT}/note/`, requestOptions)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Something broke. Please try again later.");
