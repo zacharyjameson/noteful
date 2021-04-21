@@ -37,7 +37,7 @@ class AddFolder extends Component {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        name: `${query}`,
+        folder_name: `${query}`,
       }),
     };
     fetch(`${config.API_ENDPOINT}/folders/`, requestOptions)
