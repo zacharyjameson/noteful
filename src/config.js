@@ -1,3 +1,3 @@
 export default {
-  API_ENDPOINT: "https://fast-hamlet-51365.herokuapp.com/api",
+  API_ENDPOINT: "https://mysterious-thicket-30074.herokuapp.com/api",
 };
