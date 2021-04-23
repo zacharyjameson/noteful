@@ -40,8 +40,6 @@ class App extends Component {
       })
       .catch((error) => {
         console.error({ error });
-        console.log(this.state.folders);
-        console.log(this.state.notes);
       });
   };
 
