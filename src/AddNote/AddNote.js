@@ -99,7 +99,7 @@ class AddNote extends Component {
     const options = this.context.folders.map((folder, i) => {
       return (
         <option value={folder.id} key={i}>
-          {folder.name}
+          {folder.folder_name}
         </option>
       );
     });
