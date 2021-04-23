@@ -8,16 +8,6 @@ exports[`NotePageMain component renders a .NotePageMain by default 1`] = `
     content=""
     onDeleteNote={[Function]}
   />
-  <div
-    className="NotePageMain__content"
-  >
-    <p
-      key="0"
-    >
-       
-       
-    </p>
-  </div>
 </section>
 `;
 

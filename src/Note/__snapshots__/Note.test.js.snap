@@ -37,13 +37,13 @@ exports[`Note component renders a .Note by default 1`] = `
     />
      remove
   </button>
+  <p />
   <div
     className="Note__dates"
   >
     <div
       className="Note__dates-modified"
     >
-      <p />
       <span
         className="Date"
       >
@@ -111,13 +111,13 @@ exports[`Note component renders the Note given props 1`] = `
     />
      remove
   </button>
+  <p />
   <div
     className="Note__dates"
   >
     <div
       className="Note__dates-modified"
     >
-      <p />
       <span
         className="Date"
       >

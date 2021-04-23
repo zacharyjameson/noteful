@@ -51,9 +51,9 @@ export default class Note extends React.Component {
         >
           <FontAwesomeIcon icon="trash-alt" /> remove
         </button>
+        <p>{content}</p>
         <div className="Note__dates">
           <div className="Note__dates-modified">
-          <p>{content}</p>
             <span className="Date">
               <Moment format="D MMMM YYYY">{modified}</Moment>
             </span>
@@ -66,7 +66,7 @@ export default class Note extends React.Component {
 
 Note.propTypes = {
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
   modified: PropTypes.object,
   onDeleteNote: PropTypes.func
 };
