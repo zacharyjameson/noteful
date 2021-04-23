@@ -21,6 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchAllData();
+    console.log(this.state.folders);
+    console.log(this.state.notes);
   }
 
   fetchAllData = () => {
