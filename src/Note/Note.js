@@ -51,9 +51,9 @@ export default class Note extends React.Component {
         >
           <FontAwesomeIcon icon="trash-alt" /> remove
         </button>
-        <p>{content}</p>
         <div className="Note__dates">
           <div className="Note__dates-modified">
+          <p>Hello</p>
             <span className="Date">
               <Moment format="D MMMM YYYY">{modified}</Moment>
             </span>
