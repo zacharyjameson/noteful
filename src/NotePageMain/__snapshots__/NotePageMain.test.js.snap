@@ -5,6 +5,7 @@ exports[`NotePageMain component renders a .NotePageMain by default 1`] = `
   className="NotePageMain"
 >
   <Note
+    content=""
     onDeleteNote={[Function]}
   />
   <div
@@ -22,6 +23,7 @@ exports[`NotePageMain component renders a .NotePageMain by default 1`] = `
 
 exports[`NotePageMain component renders a Note with note prop 1`] = `
 <Note
+  content=""
   onDeleteNote={[Function]}
 />
 `;
