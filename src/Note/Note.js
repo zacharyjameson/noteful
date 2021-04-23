@@ -18,7 +18,7 @@ export default class Note extends React.Component {
     e.preventDefault();
     const noteId = this.props.id;
 
-    fetch(`${config.API_ENDPOINT}/note/${noteId}`, {
+    fetch(`${config.API_ENDPOINT}/note/${Number(noteId)}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -51,8 +51,8 @@ export default class Note extends React.Component {
         >
           <FontAwesomeIcon icon="trash-alt" /> remove
         </button>
-        <p>{content}</p>
         <div className="Note__dates">
+          <p>{content}</p>
           <div className="Note__dates-modified">
             <span className="Date">
               <Moment format="D MMMM YYYY">{modified}</Moment>
@@ -68,5 +68,5 @@ Note.propTypes = {
   name: PropTypes.string,
   id: PropTypes.number,
   modified: PropTypes.object,
-  onDeleteNote: PropTypes.func
+  onDeleteNote: PropTypes.func,
 };
