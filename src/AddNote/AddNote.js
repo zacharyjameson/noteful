@@ -81,6 +81,7 @@ class AddNote extends Component {
 
     fetch(`${config.API_ENDPOINT}/note/`, requestOptions)
       .then((res) => {
+        console.log(`${config.API_ENDPOINT}/note/`, requestOptions)
         if (!res.ok) {
           throw new Error("Something broke. Please try again later.");
         }
