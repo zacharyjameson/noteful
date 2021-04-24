@@ -23,21 +23,18 @@ class AddNote extends Component {
     this.setState({
       name: e.target.value,
     });
-    console.log(e.target.value);
   };
 
   updateContent = (e) => {
     this.setState({
       content: e.target.value,
     });
-    console.log(e.target.value);
   };
 
   updateFolder = (e) => {
     this.setState({
       folder: e.target.value,
     });
-    console.log(e.target.value);
   };
 
   validateName() {
@@ -81,7 +78,6 @@ class AddNote extends Component {
 
     fetch(`${config.API_ENDPOINT}/note/`, requestOptions)
       .then((res) => {
-        console.log(`${config.API_ENDPOINT}/note/`, requestOptions)
         if (!res.ok) {
           throw new Error("Something broke. Please try again later.");
         }
